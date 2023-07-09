@@ -34,7 +34,7 @@ The protocol defines 3 basic types of attestation transactions, which are stored
     <td><b>Values</b></td>
   </tr>
   <tr>
-    <td>Declare Attestation</td>
+    <td>Declare Attestation Schema</td>
     <td>0x6dff</td>
     <td>&lt;Attestation Struct&gt; (1-217 bytes)</td>
   </tr>
