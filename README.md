@@ -29,26 +29,16 @@ The protocol defines 3 basic types of attestation transactions, which are stored
 
 <table>
 <tr>
-  <td><b>v<sub>out</sub></b></td>
-  <td><b>ScriptPubKey ("Address")</b></td>
-  <td><b>BCH<br/>amount</b></td>
-  <td><b>Implied token amount<br/>(base units)</b></td>
+  <td><b>Action</b></td>
+  <td><b>Prefix</b></td>
+  <td><b>Values</b></td>
 </tr>
   <tr>
-    <td>0</td>
+    <td>Declare Attestation</td>
    <td>
-   OP_RETURN<br/>
-   &lt;Declare Attestation&gt; (0x6dff)<br/>
-   &lt;transaction_type: 'GENESIS'&gt; (7 bytes, ascii)<br/>
-   &lt;token_ticker&gt; (0 to ∞ bytes, suggested utf-8)<br/>
-   &lt;token_name&gt; (0 to ∞ bytes, suggested utf-8)<br/>
-   &lt;token_document_url&gt; (0 to ∞ bytes, suggested ascii)<br/>
-   &lt;token_document_hash&gt; (0 bytes or 32 bytes)<br/>
-   &lt;decimals&gt; (1 byte in range 0x00-0x09)<br/>
-   &lt;mint_baton_vout&gt; (0 bytes, or 1 byte in range 0x02-0xff)<br/>
-   &lt;initial_token_mint_quantity&gt; (8 byte integer)
+   0x6dff
+
    </td>
     <td>any</td>
-    <td>0</td>
   </tr>
 </table>
