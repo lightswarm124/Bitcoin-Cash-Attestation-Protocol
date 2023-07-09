@@ -41,6 +41,11 @@ The protocol defines 3 basic types of attestation transactions, which are stored
   <tr>
     <td>Create & Sign Attestation</td>
     <td>0x6dfe</td>
-    <td>&lt;Signed Message&gt;</td>
+    <td>&lt;Signed Message&gt; (1-217 bytes)</td>
+  </tr>
+  <tr>
+    <td>Revoke Signed Attestation</td>
+    <td>0x6dfd</td>
+    <td>&lt;Revoke Signed Message&gt; (1-217 bytes)</td>
   </tr>
 </table>
