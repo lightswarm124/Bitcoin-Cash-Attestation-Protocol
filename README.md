@@ -38,6 +38,6 @@ The protocol defines 3 basic types of attestation transactions, which are stored
    <td>
     <td>0x6dff</td>
    </td>
-    <td>&lt;Attestation (1-217 bytes)</td>
+    <td>&lt;Attestation&gt; (1-217 bytes)</td>
   </tr>
 </table>
