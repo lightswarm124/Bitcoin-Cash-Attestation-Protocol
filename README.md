@@ -49,3 +49,29 @@ The protocol defines 3 basic types of attestation transactions, which are stored
     <td>&lt;Revoke Signed Message&gt; (1-217 bytes)</td>
   </tr>
 </table>
+
+### Example Attestation - Schema and Signage for BCH-ETH Swaps
+Declare Attestation Schema
+```
+{
+  bchSender: address,
+  bchReceiver: address,
+  bchAmount: int,
+  bchEscrow: P2SH32,
+  bchExpiry: int,
+  ethSender: address,
+  ethReceiver: address,
+  ethAmount: int,
+  ethEscrow: address,
+  ethExpiry: in,
+}
+```
+Both parties in swap sign the attestation with parameters to the schema filled
+
+Alice's Signed Attestation: LXH3hvPIRMBSVXKOmIwx2860KbL74UmYj/QumkxR+LUwHSFZ+b0ZLdLUpgMhGiomf6CR4bhYTDYV4zNlwWtNCiqfI=
+
+Bob's Signed Attestation: LXIBiCWt62mI7KeC981vcvgg1x79XsSWhytNqKR9Y9AVzYQUn7L08zKlA+FKt+cJQvgh3VKFR9doZr9N/3G8ylX0Q=
+
+Create OP_RETURN transaction with signed attestations
+
+https://chipnet.imaginary.cash/tx/015e27d2f86e3811bbc5a78a6e389792f4556e5526a82ee21a2a1327ec020d92
