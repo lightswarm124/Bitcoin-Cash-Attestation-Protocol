@@ -63,7 +63,7 @@ Declare Attestation Schema
   ethReceiver: address,
   ethAmount: int,
   ethEscrow: address,
-  ethExpiry: in,
+  ethExpiry: int,
 }
 ```
 Both parties in swap sign the attestation with parameters to the schema filled
