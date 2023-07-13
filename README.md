@@ -27,16 +27,15 @@ The protocol defines 3 basic types of attestation transactions, which are stored
 ## Schema Fields
 Schemas follow the CashScript ABI for acceptable types. Visit [CashScript.org](https://cashscript.org/docs/language/types) for more details.
 <li><b>bool</b> - true or false</li>
-<li><b>int</b> - 64 bit signed int</li>
+<li><b>int</b> - 64 bit-sized signed int</li>
 <li><b>string</b> - UTF8 encoded bytes</li>
 <li><b>bytes</b> - byte sequence, optionally bounded by byte length</li>
 <li><b>address</b> - can be size bytes20 or bytes32 (for P2SH32)</li>
-
-Transaction ID is assigned a special bytes64 value
-<li><b>txid</b> - transaction id in size bytes64</li>
+<br />
+Transaction ID is assigned a special bytes32 value
+<li><b>txid</b> - transaction id in size bytes32</li>
 
 ## Transaction Details
-<b>Declare Attestation Schema</b>
 
 <table>
   <tr>
@@ -57,7 +56,7 @@ Transaction ID is assigned a special bytes64 value
   <tr>
     <td>Revoke Signed Attestation</td>
     <td>0x6dfd</td>
-    <td>&lt;Revoke Signed Message&gt; (1-217 bytes)</td>
+    <td>&lt;Signed Attestation TxID&gt (32 bytes) <br /> &lt;Revoke Signed Message&gt; (1-184 bytes)</td>
   </tr>
 </table>
 
