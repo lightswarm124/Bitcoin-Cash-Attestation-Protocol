@@ -31,6 +31,7 @@ Schemas follow the CashScript ABI for acceptable types. Visit [CashScript.org](h
 <li><b>string</b> - UTF8 encoded bytes</li>
 <li><b>bytes</b> - byte sequence, optionally bounded by byte length</li>
 <li><b>address</b> - can be size bytes20 or bytes32 (for P2SH32)</li>
+<li><b>txid</b> - transaction id in size bytes64</li>
 
 ## Transaction Details
 <b>Declare Attestation Schema</b>
@@ -82,7 +83,7 @@ Declare Attestation Schema
   bchSender: address,
   bchReceiver: address,
   bchAmount: int,
-  bchEscrow: address(P2SH32),
+  bchEscrow: address,
   bchExpiry: int,
   ethSender: address,
   ethReceiver: address,
