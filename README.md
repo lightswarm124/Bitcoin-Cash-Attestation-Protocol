@@ -33,7 +33,7 @@ Schemas follow the CashScript ABI for acceptable types. Visit [CashScript.org](h
 <li><b>address</b> - can be size bytes20 or bytes32</li>
 
 ## Transaction Details
-<b>Declare Attestation Schema<b>
+<b>Declare Attestation Schema</b>
 
 <table>
   <tr>
@@ -59,6 +59,7 @@ Schemas follow the CashScript ABI for acceptable types. Visit [CashScript.org](h
 </table>
 
 
+Sample BitDB query for declared attestation schemas
 ```
 {
   "v": 3,
@@ -71,6 +72,8 @@ Schemas follow the CashScript ABI for acceptable types. Visit [CashScript.org](h
   }
 }
 ```
+Visit [Fountainhead.cash docs](https://docs.fountainhead.cash/docs/bitdb) for more information.
+
 
 ### Example Attestation - Schema and Signage for BCH-ETH Swaps
 Declare Attestation Schema
@@ -79,7 +82,7 @@ Declare Attestation Schema
   bchSender: address,
   bchReceiver: address,
   bchAmount: int,
-  bchEscrow: P2SH32,
+  bchEscrow: address(P2SH32),
   bchExpiry: int,
   ethSender: address,
   ethReceiver: address,
