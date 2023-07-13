@@ -30,7 +30,7 @@ Schemas follow the CashScript ABI for acceptable types. Visit [CashScript.org](h
 <li><b>int</b> - 64 bit signed int</li>
 <li><b>string</b> - UTF8 encoded bytes</li>
 <li><b>bytes</b> - byte sequence, optionally bounded by byte length</li>
-<li><b>address</b> - can be size bytes20 or bytes32</li>
+<li><b>address</b> - can be size bytes20 or bytes32 (for P2SH32)</li>
 
 ## Transaction Details
 <b>Declare Attestation Schema</b>
