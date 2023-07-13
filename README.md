@@ -58,6 +58,20 @@ Schemas follow the CashScript ABI for acceptable types. Visit [CashScript.org](h
   </tr>
 </table>
 
+
+```
+{
+  "v": 3,
+  "q": {
+    "find": { "out.b0": { "op": 106 }, "out.h1": "6dff" },
+    "project": { "out.$": 1 }
+  },
+  "r": {
+    "f": "[ .[] | {msg: .out[0].s2} ]"
+  }
+}
+```
+
 ### Example Attestation - Schema and Signage for BCH-ETH Swaps
 Declare Attestation Schema
 ```
