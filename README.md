@@ -24,6 +24,14 @@ The protocol defines 3 basic types of attestation transactions, which are stored
 2) Create & Sign Attestation
 3) Revoke Signed Attestation
 
+## Schema Fields
+Schemas follow the CashScript ABI for acceptable types. Visit [CashScript.org](https://cashscript.org/docs/language/types) for more details.
+<li><b>bool</b> - true or false</li>
+<li><b>int</b> - 64 bit signed int</li>
+<li><b>string</b> - UTF8 encoded bytes</li>
+<li><b>bytes</b> - byte sequence, optionally bounded by byte length</li>
+<li><b>address</b> - can be size bytes20 or bytes32</li>
+
 ## Transaction Details
 <b>Declare Attestation Schema<b>
 
