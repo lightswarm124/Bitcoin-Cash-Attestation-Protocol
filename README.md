@@ -68,6 +68,20 @@ Signed Attestation on the OP_RETURN is used as part of the CashScript constructo
 ## Indexing Registered Attestation Schemas
 While unregistered attestations can be created privately among participants, registered schemas have the added benefit of coordinating public participants. Schemas, signed attestations and revocation can be indexed by the specifed action prefix following OP_RETURN. Users can choose their preferred indexing method when quering attestation data.
 
+### Sample CashScript code
+```
+pragma cashscript ^0.8.0;
+
+contract Attestation(datasig signedAttestation) {
+  function spend(pubkey alicePk, sig aliceSig, bytes attestation) {
+    require(checkDataSig(signedAttestation, attestation, ownerPk));
+    require(checkSig(aliceSig, alicePk));
+  }
+}
+```
+
+**Note:** CashScript contracts will generate the same script hash (either P2SH or P2SH32) with the same constructor parameter(s). This allows for coordination among multi-party attestations
+
 ## Sample BitDB query for declared attestation schemas
 ```
 {
@@ -109,3 +123,44 @@ Bob's Signed Attestation: LXIBiCWt62mI7KeC981vcvgg1x79XsSWhytNqKR9Y9AVzYQUn7L08z
 Create OP_RETURN transaction with signed attestations
 
 https://chipnet.imaginary.cash/tx/015e27d2f86e3811bbc5a78a6e389792f4556e5526a82ee21a2a1327ec020d92
+
+```
+pragma cashscript ^0.8.0;
+
+contract SwapLock(
+    bytes20 senderPkh,
+    bytes20 recipientPkh,
+    int timeout,
+    datasig senderSignedAttestation,
+    datasig recipientSignedAttestation
+) {
+    // Require recipient's signature to match
+    function exchange(
+        bytes senderAttestation,
+        bytes recipeintAttestation,
+        pubkey recipientPubKey,
+        sig recipientSig,
+        pubkey senderPubKey,
+        sig senderSig
+    ) {
+        require(checkDataSig(senderSignedAttestation, senderAttestation, senderPubKey));
+        require(checkDataSig(recipientSignedAttestation, recipeintAttestation, recipientPubKey));
+        require(hash160(recipientPubKey) == recipientPkh);
+        require(hash160(senderPubKey) == senderPkh);
+        require(checkSig(recipientSig, recipientPubKey));
+        require(checkSig(senderSig, senderPubKey));
+    }
+
+    // Require timeout time to be reached and sender's signature to match
+    function withdraw(
+        bytes revokeAttestation,
+        pubkey senderPubKey,
+        sig senderSig
+    ) {
+        require(tx.time >= timeout);
+        require(hash160(senderPubKey) == senderPkh);
+        require(checkSig(senderSig, senderPubKey));
+        require(checkDataSig(userPWSig, password, ownerPk));
+    }
+}
+```
