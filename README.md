@@ -153,14 +153,12 @@ contract SwapLock(
 
     // Require timeout time to be reached and sender's signature to match
     function withdraw(
-        bytes revokeAttestation,
         pubkey senderPubKey,
         sig senderSig
     ) {
         require(tx.time >= timeout);
         require(hash160(senderPubKey) == senderPkh);
         require(checkSig(senderSig, senderPubKey));
-        require(checkDataSig(userPWSig, password, ownerPk));
     }
 }
 ```
