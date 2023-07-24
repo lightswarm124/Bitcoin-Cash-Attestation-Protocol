@@ -2,8 +2,10 @@
 # Bitcoin-Cash-Attestation-Protocol
 
 ## Authors
+Lightswarm
 
 ## Acknowledgements
+Ethereum Attestation Service team
 
 # SECTION I: BACKGROUND
 ## Introduction
@@ -79,6 +81,7 @@ contract Attestation(datasig signedAttestation) {
   }
 }
 ```
+[OP_CHECKDATASIG specs](https://github.com/bitcoincashorg/bitcoincash.org/blob/master/spec/op_checkdatasig.md)
 
 **Note:** CashScript contracts will generate the same script hash (either P2SH or P2SH32) with the same constructor parameter(s). This allows for coordination among multi-party attestations
 
